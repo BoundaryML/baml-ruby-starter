@@ -5,7 +5,7 @@ This project demonstrates how to use BAML code with Ruby:
 ```
 export OPENAI_API_KEY=$insert_openai_api_key
 bundle install
-ruby examples.rb
+bundle exec -- ruby examples.rb
 ```
 
 Check out https://promptfiddle.com and https://docs.boundaryml.com for more information.
