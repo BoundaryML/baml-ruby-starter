@@ -11,7 +11,8 @@ puts "Example 1: calling GPT4 with the ClassifyMessage function"
 input = "Can't access my account using my usual login credentials"
 classified = b.ClassifyMessage(input: input)
 
-puts "ClassifyMessage response: " + classified.to_s
+puts "ClassifyMessage response:"
+puts classified.serialize
 
 ##################################################################################################
 
@@ -24,6 +25,7 @@ email = Baml::Types::Email.new(
 )
 order_info = b.ExtractOrderInfo(email: email)
 
-puts "ExtractOrderInfo response: " + order_info.to_s
+puts "ExtractOrderInfo response:"
+puts order_info.serialize
 
 ##################################################################################################

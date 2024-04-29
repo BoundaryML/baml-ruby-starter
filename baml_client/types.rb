@@ -2,7 +2,7 @@
 #
 #  Welcome to Baml! To use this generated code, please run the following:
 #
-#  $ bundle add sorbet-runtime sorbet-coerce
+#  $ bundle add sorbet-runtime sorbet-coerce sorbet-struct-comparable
 #
 ###############################################################################
 
@@ -14,8 +14,9 @@
 
 # typed: false
 require "delegate"
-require "sorbet-runtime"
 require "sorbet-coerce"
+require "sorbet-struct-comparable"
+require "sorbet-runtime"
 
 module Baml
   
@@ -23,34 +24,49 @@ module Baml
 
     class Category < T::Enum
       enums do
-        Refund = new
-        CancelOrder = new
-        TechnicalSupport = new
-        AccountIssue = new
-        Question = new
+        Refund = new("Refund")
+        CancelOrder = new("CancelOrder")
+        TechnicalSupport = new("TechnicalSupport")
+        AccountIssue = new("AccountIssue")
+        Question = new("Question")
       end
     end
 
     class OrderStatus < T::Enum
       enums do
-        ORDERED = new
-        SHIPPED = new
-        DELIVERED = new
-        CANCELLED = new
+        ORDERED = new("ORDERED")
+        SHIPPED = new("SHIPPED")
+        DELIVERED = new("DELIVERED")
+        CANCELLED = new("CANCELLED")
       end
     end
     
     class Email < T::Struct; end
     
+    class MessageFeatures < T::Struct; end
+    
     class OrderInfo < T::Struct; end
 
     class Email < T::Struct
+      if defined?(T::Struct::ActsAsComparable)
+        include T::Struct::ActsAsComparable
+      end
       const :subject, String
       const :body, String
       const :from_address, String
     end
 
+    class MessageFeatures < T::Struct
+      if defined?(T::Struct::ActsAsComparable)
+        include T::Struct::ActsAsComparable
+      end
+      const :categories, T::Array[Baml::Types::Category]
+    end
+
     class OrderInfo < T::Struct
+      if defined?(T::Struct::ActsAsComparable)
+        include T::Struct::ActsAsComparable
+      end
       const :order_status, Baml::Types::OrderStatus
       const :tracking_number, T.nilable(String)
       const :estimated_arrival_date, T.nilable(String)

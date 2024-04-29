@@ -6,15 +6,18 @@ enum Category {
     Question
 }
 
-function ClassifyMessage(input: string) -> Category {
+class MessageFeatures {
+    categories Category[]
+}
+
+function ClassifyMessage(input: string) -> MessageFeatures {
   client GPT4Turbo
 
   prompt #"
     {# _.chat("system") starts a system message #}
     {{ _.chat("system") }}
 
-    Classify the following INPUT into ONE
-    of the following categories:
+    Classify the following INPUT.
 
     {{ ctx.output_format }}
 

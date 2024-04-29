@@ -2,7 +2,7 @@
 #
 #  Welcome to Baml! To use this generated code, please run the following:
 #
-#  $ bundle add sorbet-runtime sorbet-coerce
+#  $ bundle add sorbet-runtime sorbet-coerce sorbet-struct-comparable
 #
 ###############################################################################
 
@@ -13,7 +13,8 @@
 # formatter:off
 
 # typed: strict
-require "baml"
+#require "baml"
+require_relative "/home/sam/baml/engine/language_client_ruby/lib/baml"
 require "sorbet-runtime"
 
 require_relative "types"
@@ -40,7 +41,7 @@ module Baml
     sig {
       params(
         input: String,
-      ).returns(Baml::Types::Category)
+      ).returns(Baml::Types::MessageFeatures)
     }
     def ClassifyMessage(
         input:
@@ -51,7 +52,7 @@ module Baml
           "input" => input,
         }
       )
-      TypeCoerce[Baml::Types::Category].new.from(raw.parsed)
+      TypeCoerce[Baml::Types::MessageFeatures].new.from(raw.parsed)
     end
 
     sig {
@@ -86,7 +87,7 @@ module Baml
     sig {
       params(
         input: String,
-      ).returns(Baml::Unstable::FunctionResult[Baml::Types::Category])
+      ).returns(Baml::Unstable::FunctionResult[Baml::Types::MessageFeatures])
     }
     def ClassifyMessage(
         input:
@@ -97,9 +98,9 @@ module Baml
           "input" => input,
         }
       )
-      Baml::Unstable::FunctionResult[Baml::Types::Category].new(
+      Baml::Unstable::FunctionResult[Baml::Types::MessageFeatures].new(
         inner: raw,
-        parsed: TypeCoerce[Baml::Types::Category].new.from(raw.parsed)
+        parsed: TypeCoerce[Baml::Types::MessageFeatures].new.from(raw.parsed)
       )
     end
 
