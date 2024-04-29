@@ -13,8 +13,7 @@
 # formatter:off
 
 # typed: strict
-#require "baml"
-require_relative "/home/sam/baml/engine/language_client_ruby/lib/baml"
+require "baml"
 require "sorbet-runtime"
 
 require_relative "types"
