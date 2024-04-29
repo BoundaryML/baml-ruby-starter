@@ -12,7 +12,8 @@ input = "Can't access my account using my usual login credentials"
 classified = b.ClassifyMessage(input: input)
 
 puts "ClassifyMessage response:"
-puts classified.serialize
+pp classified.serialize
+puts
 
 ##################################################################################################
 
@@ -26,6 +27,6 @@ email = Baml::Types::Email.new(
 order_info = b.ExtractOrderInfo(email: email)
 
 puts "ExtractOrderInfo response:"
-puts order_info.serialize
+pp order_info.serialize
 
 ##################################################################################################
