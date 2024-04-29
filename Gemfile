@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 source "https://rubygems.org"
 
-gem "baml", '~> 0.1.2'
+gem "baml", '~> 0.1.3'
 gem "sorbet-coerce"
 gem "sorbet-struct-comparable"
 gem "sorbet-runtime"

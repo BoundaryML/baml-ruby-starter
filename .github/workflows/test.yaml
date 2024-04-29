@@ -1,0 +1,37 @@
+name: Ruby Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ruby:
+    strategy:
+      matrix:
+        _:
+          - name: x86_64-linux
+            runs-on: ubuntu-latest
+
+          - name: arm64-darwin
+            runs-on: macos-14
+
+          - name: x86_64-darwin
+            runs-on: macos-13
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+
+      - name: Install dependencies
+        run: |
+          bundle install
+
+      - name: Run Ruby script
+        run: |
+          bundle exec ruby examples.rb
