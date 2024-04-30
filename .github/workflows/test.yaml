@@ -8,6 +8,7 @@ on:
 jobs:
   ruby:
     strategy:
+      fail-fast: false
       matrix:
         platform:
           - name: x86_64-linux
