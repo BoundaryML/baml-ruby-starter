@@ -44,4 +44,3 @@ jobs:
           bundle exec ruby examples.rb
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          BAML_LOG: debug
