@@ -9,7 +9,7 @@ jobs:
   ruby:
     strategy:
       matrix:
-        _:
+        platform:
           - name: x86_64-linux
             runs-on: ubuntu-latest
 
@@ -18,7 +18,13 @@ jobs:
 
           - name: x86_64-darwin
             runs-on: macos-13
-    runs-on: ubuntu-latest
+
+        ruby-version:
+          - 3.3
+          - 3.2
+          - 3.1
+
+    runs-on: ${{ matrix.platform.runs-on }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -26,7 +32,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3'
+          ruby-version: ${{ matrix.ruby-version }}
 
       - name: Install dependencies
         run: |
