@@ -99,7 +99,7 @@ module Baml
       )
       Baml::Unstable::FunctionResult[Baml::Types::MessageFeatures].new(
         inner: raw,
-        parsed: TypeCoerce[Baml::Types::MessageFeatures].new.from(raw.parsed)
+        parsed: Baml::convert_to(Baml::Types::MessageFeatures).from(raw.parsed)
       )
     end
 
@@ -119,7 +119,7 @@ module Baml
       )
       Baml::Unstable::FunctionResult[Baml::Types::OrderInfo].new(
         inner: raw,
-        parsed: TypeCoerce[Baml::Types::OrderInfo].new.from(raw.parsed)
+        parsed: Baml::convert_to(Baml::Types::OrderInfo).from(raw.parsed)
       )
     end
 

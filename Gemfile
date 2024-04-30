@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 source "https://rubygems.org"
 
-gem "baml", '~> 0.1.3'
+gem "baml", '~> 0.1.6'
 gem "sorbet-coerce"
 gem "sorbet-struct-comparable"
 gem "sorbet-runtime"
@@ -11,5 +11,4 @@ group :development do
     # and is moving out of the standard library in Ruby 3.4
     gem "bigdecimal"
     gem "sorbet"
-    gem "watchman"
 end

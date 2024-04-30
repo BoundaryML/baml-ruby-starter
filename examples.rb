@@ -17,18 +17,16 @@ puts
 
 ##################################################################################################
 
-# This is broken right now - fixing this
-# puts "Example 2: calling GPT4 with the ExtractOrderInfo function"
-# 
-# email = Baml::Types::Email.new(
-#         from_address: "\"Amazon.com\" <shipment-tracking@amazon.com>",
-#         subject: "Your Amazon.com order of \"Wood Square Dowel Rods...\" has shipped!",
-#         body: "Amazon Shipping Confirmation\nwww.amazon.com?ie=UTF8&ref_=scr_home\n\nHi Samuel, your package will arrive:\n\nThursday, April 4\n\nTrack your package:\nwww.amazon.com/gp/your-account/ship-track?ie=UTF8&orderId=113-7540940-3785857&packageIndex=0&shipmentId=Gx7wk71F9&ref_=scr_pt_tp_t\n\nOn the way:\nWood Square Dowel Rods...\nOrder #113-7540940-3785857\n\nAn Amazon driver may contact you by text message or call you for help on the day of delivery.    \n\nShip to:\n    Sam\n    SEATTLE, WA\n\nShipment total:\n$0.00",
-# )
-# Baml::Ffi::roundtrip(email)
-# order_info = b.ExtractOrderInfo(email: email)
-# 
-# puts "ExtractOrderInfo response:"
-# pp order_info.serialize
+puts "Example 2: calling GPT4 with the ExtractOrderInfo function"
+
+email = Baml::Types::Email.new(
+        from_address: "\"Amazon.com\" <shipment-tracking@amazon.com>",
+        subject: "Your Amazon.com order of \"Wood Square Dowel Rods...\" has shipped!",
+        body: "Amazon Shipping Confirmation\nwww.amazon.com?ie=UTF8&ref_=scr_home\n\nHi Samuel, your package will arrive:\n\nThursday, April 4\n\nTrack your package:\nwww.amazon.com/gp/your-account/ship-track?ie=UTF8&orderId=113-7540940-3785857&packageIndex=0&shipmentId=Gx7wk71F9&ref_=scr_pt_tp_t\n\nOn the way:\nWood Square Dowel Rods...\nOrder #113-7540940-3785857\n\nAn Amazon driver may contact you by text message or call you for help on the day of delivery.    \n\nShip to:\n    Sam\n    SEATTLE, WA\n\nShipment total:\n$0.00",
+)
+order_info = b.ExtractOrderInfo(email: email)
+
+puts "ExtractOrderInfo response:"
+pp order_info.serialize
 
 ##################################################################################################
