@@ -42,3 +42,5 @@ jobs:
       - name: Run Ruby script
         run: |
           bundle exec ruby examples.rb
+        env:
+          OPEN_API_KEY: ${{ secrets.OPEN_API_KEY }}
