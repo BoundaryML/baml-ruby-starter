@@ -1,9 +1,9 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    baml (0.1.6-arm64-darwin)
-    baml (0.1.6-x86_64-darwin)
-    baml (0.1.6-x86_64-linux)
+    baml (0.1.7-arm64-darwin)
+    baml (0.1.7-x86_64-darwin)
+    baml (0.1.7-x86_64-linux)
     bigdecimal (3.1.7)
     polyfill (1.9.0)
     safe_type (1.1.1)
@@ -21,13 +21,12 @@ GEM
 
 PLATFORMS
   arm64-darwin
-  ruby
   universal-darwin
   x86_64-darwin
   x86_64-linux
 
 DEPENDENCIES
-  baml (~> 0.1.6)
+  baml (~> 0.1.7)
   bigdecimal
   sorbet
   sorbet-coerce
