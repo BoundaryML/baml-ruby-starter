@@ -16,42 +16,27 @@
 require "sorbet-struct-comparable"
 require "sorbet-runtime"
 
+require_relative "types"
+
 module Baml
   
-  module Types
-    class Category < T::Enum
-      enums do
-        Refund = new("Refund")
-        CancelOrder = new("CancelOrder")
-        TechnicalSupport = new("TechnicalSupport")
-        AccountIssue = new("AccountIssue")
-        Question = new("Question")
-      end
-    end
-    class OrderStatus < T::Enum
-      enums do
-        ORDERED = new("ORDERED")
-        SHIPPED = new("SHIPPED")
-        DELIVERED = new("DELIVERED")
-        CANCELLED = new("CANCELLED")
-      end
-    end
+  module PartialTypes
     class Email < T::Struct; end
     class MessageFeatures < T::Struct; end
     class OrderInfo < T::Struct; end
     class Email < T::Struct
       include T::Struct::ActsAsComparable
-      const :subject, String
-      const :body, String
-      const :from_address, String
+      const :subject, T.nilable(String)
+      const :body, T.nilable(String)
+      const :from_address, T.nilable(String)
     end
     class MessageFeatures < T::Struct
       include T::Struct::ActsAsComparable
-      const :categories, T::Array[Baml::Types::Category]
+      const :categories, T::Array[T.nilable(Baml::Types::Category)]
     end
     class OrderInfo < T::Struct
       include T::Struct::ActsAsComparable
-      const :order_status, Baml::Types::OrderStatus
+      const :order_status, T.nilable(Baml::Types::OrderStatus)
       const :tracking_number, T.nilable(String)
       const :estimated_arrival_date, T.nilable(String)
     end

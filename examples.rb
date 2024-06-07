@@ -2,7 +2,7 @@
 require_relative "baml_client/client"
 require "pp"
 
-b = Baml::BamlClient.from_directory("baml_src")
+b = Baml.Client
 
 ##################################################################################################
 
